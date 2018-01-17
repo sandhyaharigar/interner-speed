@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Test Internet Speed</h2>
+
+<div>
+	<button type="button" onclick="testSpeed()">Get speed result</button>
+	<div id="result">
+		<strong></strong>
+	</div>
+</div>
+
+<script>
+function testSpeed() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    	var res = JSON.parse(this.responseText)
+    	var response = '<p><strong>your ip address:</strong> ' + res.client.ip + '</p>';
+    	response += '<p><strong>Internet Service Provider (ISP):</strong> ' + res.client.isp + '</p>';
+    	response += '<p><strong>Ping:</strong> ' + res.server.ping + ' ms </p>';
+    	response += '<p> <strong>Download:</strong> ' + res.speeds.download + ' Mbps</p>';
+    	response += '<p> <strong>Upload:</strong> ' + res.speeds.upload + ' Mbps</p>';
+      document.getElementById("result").innerHTML = response;
+    }
+  };
+  xhttp.open("GET", "http://localhost:5000/get-internet-speed", true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>

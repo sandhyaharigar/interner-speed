@@ -1,0 +1,28 @@
+{
+  "name": "speedtest-net",
+  "description": "Speedtest.net client",
+  "author": "Test",
+  "version": "1.4.1",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hanumanthraju/netspeedtest.git"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "draftlog": "^1.0.12",
+    "hapi": "^15.2.0",
+    "http-proxy-agent": "^2.0.0",
+    "https-proxy-agent": "^2.1.1",
+    "xml2js": "^0.4.4"
+  },
+  "devDependencies": {
+    "eslint": "^4.14.0"
+  },
+  "engines": {
+    "node": "6.9.3"
+  }
+}
